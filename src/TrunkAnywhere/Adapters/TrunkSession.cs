@@ -6,7 +6,7 @@ namespace TrunkAnywhere.Adapters;
 
 /// <summary>
 /// The mod's game side, run once a frame: answers the trunk key, walks an accepted press through to the trunk view,
-/// and reports moves the unpaid guard refused. A refused press writes one log line and touches nothing in the game.
+/// and reports moves and shop buys the unpaid guard refused. A refused press writes one log line and touches nothing in the game.
 /// </summary>
 internal sealed class TrunkSession
 {
@@ -26,6 +26,7 @@ internal sealed class TrunkSession
     public void Update()
     {
         ReportRefusedMoves();
+        ReportRefusedBuys();
 
         if (_trunkKey != KeyCode.None && Input.GetKeyDown(_trunkKey))
         {
@@ -45,6 +46,16 @@ internal sealed class TrunkSession
 
         _log($"kept {blocked.Count} unpaid item(s) out of the trunk: {string.Join(", ", blocked)}");
         _game.ShowMoveRefused();
+    }
+
+    private void ReportRefusedBuys()
+    {
+        var refused = UnpaidGuard.TakeBlockedBuys();
+
+        if (refused.Count == 0) return;
+
+        _log($"kept {refused.Count} shop buy(s) out of the trunk, nothing bought or charged: {string.Join(", ", refused)}");
+        _game.ShowBuyRefused();
     }
 
     /// <summary>The frame of an accepted press only starts it; waiting starts on the next frame, after the game has handled what was sent.</summary>

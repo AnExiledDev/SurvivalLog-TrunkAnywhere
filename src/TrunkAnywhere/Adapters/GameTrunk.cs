@@ -18,6 +18,7 @@ namespace TrunkAnywhere.Adapters;
 internal sealed class GameTrunk
 {
     private const string BlockedText = "Pay for it first: unpaid items can't go in the trunk.";
+    private const string BuyBlockedText = "Buy into your bag: unpaid items can't go in the trunk.";
 
     private readonly Action<string> _log;
     private readonly HashSet<string> _reportedFailures = new();
@@ -127,6 +128,9 @@ internal sealed class GameTrunk
         Send("bag refresh", () => Ac_Item_RefreshAllBagViews.SendAction());
         Send("pop text", () => Ac_PopText_AddPopText.SendAction(BlockedText));
     }
+
+    /// <summary>Says why a trunk-tab buy did nothing. The refused buy changed no state, so there is nothing to redraw.</summary>
+    public void ShowBuyRefused() => Send("pop text", () => Ac_PopText_AddPopText.SendAction(BuyBlockedText));
 
     private static BagView ReadBag(ReduxUISystem ui) =>
         BagView.Classify(ui.IsUIActive(Il2CppType.Of<WebUI_BackpackUI>()), BackpackHooks.LastOpened, VehicleConfig.TrunkOwnerId);

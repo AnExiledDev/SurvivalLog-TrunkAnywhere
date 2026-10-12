@@ -7,6 +7,7 @@ A BepInEx 6 (IL2CPP) plugin for Survival Log: one key opens the backpack and tru
 - `F6` opens your backpack beside your vehicle's trunk, wherever you are, through the game's own trunk open path (the event the cart's organize trunk action raises), so the game's own checks apply.
 - If your own backpack is open, it is closed first and the trunk view opens in its place.
 - An unpaid item dragged into the trunk stays where it was, and a short message says to pay for it first. The check sits where the game moves an item from one inventory to another, so it holds for every drag anywhere.
+- Buying on the shop's trunk tab does nothing: no item is created, nothing goes on the bill and no money is taken, and a short message says to buy into your bag instead. Buying into your bag works as usual, and you can move the item into the trunk once it is paid for.
 
 ## Controls
 
@@ -31,8 +32,7 @@ Log: `BepInEx/trunk-anywhere.log`.
 ## Known limits
 
 - Any window the game counts as modal blocks the key, the settings menu included.
-- The shop's trunk tab still buys unpaid items straight into the trunk, as the game always has. The game creates those items in the trunk directly and this mod only guards moves. Leaving the shop without paying takes them back out, as before.
-- An unpaid item already in the trunk can be rearranged there or taken out.
+- An unpaid item already in the trunk (bought there before this version, for example) can be rearranged there or taken out.
 - Door boxes are not the trunk and are not guarded.
 - If the mod could not watch the bag screen (its hooks failed, see the log), the key only works while the bag screen is closed.
 

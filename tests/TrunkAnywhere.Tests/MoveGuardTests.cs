@@ -44,4 +44,16 @@ public class MoveGuardTests
     {
         Assert.Equal(MoveVerdict.Allow, MoveGuard.Decide(new ItemMove(BackpackId, StorageId, IsUnpaid: true), TrunkId));
     }
+
+    [Fact]
+    public void A_shop_buy_from_the_trunk_tab_is_refused()
+    {
+        Assert.Equal(MoveVerdict.Block, MoveGuard.Decide(new ShopBuy(BuyerOwnerId: TrunkId), TrunkId));
+    }
+
+    [Fact]
+    public void A_shop_buy_into_the_bag_is_allowed()
+    {
+        Assert.Equal(MoveVerdict.Allow, MoveGuard.Decide(new ShopBuy(BuyerOwnerId: BackpackId), TrunkId));
+    }
 }
