@@ -48,8 +48,9 @@ public enum TakeAllIgnoreReason
 
 /// <summary>
 /// The page's Take All to Trunk button moves everything on the right side of the bag screen into the trunk, when the
-/// trunk is one of the left side's tabs and some other tab is shown. The game's whole-container move does not look at
-/// the unpaid flag, so a right side holding any unpaid item moves nothing at all: unpaid items never enter the trunk.
+/// trunk is one of the left side's tabs and some other tab is shown. Unpaid items exist only on screen: the game's
+/// whole-container move carries only real items and then drops unpaid ones from the source bag's display, so a right
+/// side holding any unpaid item moves nothing at all and they stay where the player can pay for them.
 /// </summary>
 public static class TakeAllToTrunk
 {
