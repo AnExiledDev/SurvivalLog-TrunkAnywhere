@@ -1,12 +1,13 @@
 using System;
+using GameCore.HotUpdate;
 using TrunkAnywhere.Core;
 using UnityEngine;
 
 namespace TrunkAnywhere.Adapters;
 
 /// <summary>
-/// The mod's game side, run once a frame: answers the trunk key, walks an accepted press through to the trunk view,
-/// and reports moves and shop buys the unpaid guard refused. A refused press writes one log line and touches nothing in the game.
+/// The mod's game side, run once a frame: answers the page's Take All to Trunk button and the trunk key, walks an
+/// accepted press through to the trunk view, and reports moves and shop buys the unpaid guard refused. A refused press writes one log line and touches nothing in the game.
 /// </summary>
 internal sealed class TrunkSession
 {
@@ -25,6 +26,7 @@ internal sealed class TrunkSession
 
     public void Update()
     {
+        AnswerPage();
         ReportRefusedMoves();
         ReportRefusedBuys();
 
@@ -36,6 +38,56 @@ internal sealed class TrunkSession
         }
 
         if (_step is not OpenStep.Idle) Advance();
+    }
+
+    private void AnswerPage()
+    {
+        while (PageMessages.TryTake(out var message))
+        {
+            switch (message)
+            {
+                case PageMessage.TakeAllToTrunk:
+                    AnswerTakeAll();
+                    break;
+                case PageMessage.Diag diag:
+                    _log("page: " + diag.Text);
+                    break;
+                case PageMessage.Unknown unknown:
+                    _log("page sent a message this version does not know: " + unknown.Text);
+                    break;
+                default:
+                    throw new InvalidOperationException("unhandled page message " + message);
+            }
+        }
+    }
+
+    /// <summary>Read on the frame after the press, so it acts on the screen as it is now, not as the page last drew it.</summary>
+    private void AnswerTakeAll()
+    {
+        try
+        {
+            var decision = TakeAllToTrunk.Decide(_game.ReadTakeAll(), VehicleConfig.TrunkOwnerId);
+
+            _log($"take all to trunk: {decision}");
+
+            switch (decision)
+            {
+                case TakeAllDecision.Move move:
+                    _game.MoveBag(move.FromOwnerId, move.ToOwnerId);
+                    break;
+                case TakeAllDecision.RefuseUnpaid:
+                    _game.ShowMoveRefused();
+                    break;
+                case TakeAllDecision.Ignore:
+                    break;
+                default:
+                    throw new InvalidOperationException("unhandled take all decision " + decision);
+            }
+        }
+        catch (Exception ex)
+        {
+            _log("take all to trunk failed: " + ex);
+        }
     }
 
     private void ReportRefusedMoves()

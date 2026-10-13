@@ -5,14 +5,15 @@ using UnityEngine;
 namespace TrunkAnywhere.Adapters;
 
 /// <summary>
-/// The Unity object that hands frames to the session. Each distinct failure is logged once, never rethrown into the
-/// game; a failure that repeats every frame would otherwise flood the log.
+/// The Unity object that hands frames to the session and keeps the page script in the web UI. Each distinct failure
+/// is logged once, never rethrown into the game; a failure that repeats every frame would otherwise flood the log.
 /// </summary>
 public sealed class TrunkTicker : MonoBehaviour
 {
     private const int MaxReportedFailures = 20;
 
     internal static TrunkSession? Session;
+    internal static WebPage? Page;
     internal static Action<string> Log = _ => { };
     private static readonly HashSet<string> ReportedFailures = new();
 
@@ -25,6 +26,16 @@ public sealed class TrunkTicker : MonoBehaviour
         try
         {
             Session?.Update();
+        }
+        catch (Exception ex)
+        {
+            ReportFailure(ex);
+        }
+
+        // Kept apart from the session, so a session failing every frame still leaves the button in the page.
+        try
+        {
+            Page?.KeepInstalled(Time.unscaledTime);
         }
         catch (Exception ex)
         {

@@ -11,7 +11,7 @@ namespace TrunkAnywhere;
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.trunkanywhere";
-    private const string Version = "0.1.1";
+    private const string Version = "0.2.0";
 
     public override void Load()
     {
@@ -23,7 +23,9 @@ public sealed class Plugin : BasePlugin
         UnpaidGuard.Apply(harmony, log.Write);
         BackpackHooks.Apply(harmony, log.Write);
         InputHooks.Apply(harmony, log.Write);
+        PageMessages.Apply(harmony, log.Write);
         TrunkTicker.Session = new TrunkSession(new GameTrunk(log.Write), trunkKey, log.Write);
+        TrunkTicker.Page = new WebPage(log.Write);
         TrunkTicker.Log = log.Write;
         AddComponent<TrunkTicker>();
     }

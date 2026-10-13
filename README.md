@@ -10,7 +10,8 @@ Before the disaster, the only way to sort your trunk is the cart's organize trun
 - **Works from your backpack**: if your own backpack is already open, it closes and the trunk view opens in its place.
 - **Unpaid items stay out of the trunk**: dragging an unpaid item into the trunk does nothing. The item stays where it was and a message says "Pay for it first: unpaid items can't go in the trunk." This check sits where the game moves any item between inventories, so it holds for every drag.
 - **No buying straight into the trunk**: buying on the shop's trunk tab does nothing. No item is created, nothing goes on the bill and no money is taken, and a message says "Buy into your bag: unpaid items can't go in the trunk." Buy into your bag as usual, pay, then move the item into the trunk.
-- **Log file**: every key press and what came of it, and every unpaid item or shop buy kept out of the trunk, is written to `BepInEx\trunk-anywhere.log`.
+- **Take All to Trunk**: when you loot a storage or container and your trunk is one of the tabs on the left, a Take All to Trunk button sits right under Take by Type. It moves everything in the container straight into the trunk, without switching tabs, using the game's own Take All move. It is greyed out when the container is empty and hidden while the trunk tab is the one shown, where the game's own Take All already fills the trunk. If the container holds an unpaid item, nothing moves and the "Pay for it first" message shows.
+- **Log file**: every key press and Take All to Trunk press and what came of it, and every unpaid item or shop buy kept out of the trunk, is written to `BepInEx\trunk-anywhere.log`.
 
 Trunk Anywhere adds no data of its own to your save. Items you move with the trunk view are moved in your save the same way the game's own trunk view moves them. You can remove the mod at any time; the trunk and everything in it stay as they are.
 
@@ -63,7 +64,7 @@ Settings live in `BepInEx\config\com.dev.survivallog.trunkanywhere.cfg`, created
 
 Tested on Survival Log 1.1.18317 with BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Trunk Anywhere 0.1.1 started, key F6`. The same line, plus one line for every press of the key saying what happened and why, is in `BepInEx\trunk-anywhere.log`, which survives restarts. If the key seems to do nothing, that file says which of the reasons above stopped it.
+Check `BepInEx\LogOutput.log` for `===== Trunk Anywhere 0.2.0 started, key F6`. The same line, plus one line for every press of the key saying what happened and why, is in `BepInEx\trunk-anywhere.log`, which survives restarts. If the key seems to do nothing, that file says which of the reasons above stopped it.
 
 ## Feedback and bug reports
 
@@ -79,7 +80,7 @@ dotnet build src/TrunkAnywhere -c Release -p:GameDir="C:\path\to\Survival Log"
 
 `GameDir` is the game folder. The default in the project file is a local path you will almost certainly need to override. The output DLL is at `src\TrunkAnywhere\bin\Release\TrunkAnywhere.dll`.
 
-The unit tests cover the key and unpaid-item rules and need nothing from the game:
+The unit tests cover the key and unpaid-item rules and the Take All to Trunk button, and need nothing from the game:
 
 ```
 dotnet test tests/TrunkAnywhere.Tests

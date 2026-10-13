@@ -10,6 +10,7 @@ Before the disaster, sorting your trunk means finding the cart and using its org
 [*][b]Game's own view[/b]: the same trunk view the cart opens, with the game's own checks.[/*]
 [*][b]Unpaid items stay out[/b]: you can't drag an unpaid item into the trunk. Pay for it first.[/*]
 [*][b]No buying into the trunk[/b]: the shop's trunk tab won't buy. Buy into your bag, then move it.[/*]
+[*][b]Take All to Trunk[/b]: when looting with your trunk as a tab, a new button under Take by Type moves everything straight into the trunk.[/*]
 [/list]
 
 [size=5]Hotkeys[/size]
