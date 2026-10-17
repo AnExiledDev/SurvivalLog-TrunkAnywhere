@@ -30,6 +30,20 @@ public class PageScriptTests
     }
 
     [Fact]
+    public void The_button_label_follows_the_language_the_plugin_sends()
+    {
+        var page = new PageScript();
+
+        page.OpenLoot();
+        page.Run("window.__trunkanywhereLabel = '" + Texts.TakeAllLabel.Zh + "';");
+        page.SendScriptAgain();
+        page.Poll();
+
+        Assert.Equal(Texts.TakeAllLabel.Zh, page.Text("trunkButton().children[1].textContent"));
+        Assert.Equal(1, page.Number("controls().querySelectorAll('.ta-take-trunk').length"));
+    }
+
+    [Fact]
     public void Pressing_the_button_asks_the_plugin_to_take_all_to_the_trunk()
     {
         var page = new PageScript();

@@ -11,7 +11,7 @@
   var PREFIX = 'slmod|trunkanywhere|';
   var POLL_MS = 400;
   var BUTTON_CLASS = 'ta-take-trunk';
-  var LABEL = 'Take All to Trunk';
+  var DEFAULT_LABEL = 'Take All to Trunk';
   var ARROW = '\u25C0';
 
   var reported = {};
@@ -56,6 +56,11 @@
 
   // ===== The button =====
 
+  // The plugin sets the label in the game's language on every send, so it follows a language change.
+  function buttonLabel() {
+    return window.__trunkanywhereLabel || DEFAULT_LABEL;
+  }
+
   function makeButton(doc) {
     var button = doc.createElement('button');
     var arrow = doc.createElement('span');
@@ -65,7 +70,7 @@
     arrow.className = 'btn-arrow';
     arrow.textContent = ARROW;
     label.className = 'btn-label';
-    label.textContent = LABEL;
+    label.textContent = buttonLabel();
     button.appendChild(arrow);
     button.appendChild(label);
     button.addEventListener('click', function () { send('takeAllToTrunk'); });
@@ -98,6 +103,10 @@
       button = makeButton(doc);
       placeButton(controls, button);
     }
+
+    var label = button.querySelector('.btn-label');
+
+    if (label && label.textContent !== buttonLabel()) label.textContent = buttonLabel();
 
     button.style.display = state.isWanted ? '' : 'none';
     button.disabled = state.isEmpty;

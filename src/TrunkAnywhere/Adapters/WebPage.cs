@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using GameCore.HotUpdate.ReduxUI;
+using TrunkAnywhere.Core;
 
 namespace TrunkAnywhere.Adapters;
 
@@ -31,7 +32,7 @@ internal sealed class WebPage
 
         _nextCheckAt = now + CheckSeconds;
 
-        if (!Run(Script()) || _hasReportedInstall) return;
+        if (!Run(LabelLine() + Script()) || _hasReportedInstall) return;
 
         _hasReportedInstall = true;
         _log("page script sent to the web UI");
@@ -58,6 +59,10 @@ internal sealed class WebPage
             return false;
         }
     }
+
+    // Set on every send, ahead of the script's guard, so a language change in the game's settings reaches a page that
+    // is already running.
+    private static string LabelLine() => "window.__trunkanywhereLabel = '" + Texts.TakeAllLabel.Pick(GameLanguage.IsChinese()) + "';\n";
 
     private string Script()
     {

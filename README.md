@@ -44,7 +44,7 @@ If an item goes missing, an unpaid item gets into the trunk, or the key does som
 
 ## Requirements
 
-- Survival Log 1.1.18317. Built and tested on this version; a game update can break it until the mod is updated.
+- Survival Log 1.1.18902. Built and tested on this version; a game update can break it until the mod is updated.
 - The [BepInEx Pack for Survival Log](https://www.nexusmods.com/survivallog/mods/12), the BepInEx 6 (IL2CPP) build for the game.
 
 ## Install
@@ -58,13 +58,15 @@ Delete `TrunkAnywhere.dll` from the `BepInEx\plugins` folder. For a clean slate,
 
 ## Configuration
 
-Settings live in `BepInEx\config\com.dev.survivallog.trunkanywhere.cfg`, created the first time the game starts with the mod. Edit it while the game is closed; changes apply at the next game start. See [CONFIG.md](CONFIG.md) for every setting.
+Settings live in `BepInEx\config\com.dev.survivallog.trunkanywhere.cfg`, created the first time the game starts with the mod. Edit it while the game is closed; changes apply at the next game start. Each setting in the cfg file is explained in English and Simplified Chinese. See [CONFIG.md](CONFIG.md) for every setting.
+
+The Take All to Trunk button and the unpaid-item messages follow the game's language: English or Simplified Chinese.
 
 ## Troubleshooting
 
-Tested on Survival Log 1.1.18317 with BepInEx `6.0.0-be.788`.
+Tested on Survival Log 1.1.18902 with BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Trunk Anywhere 0.2.0 started, key F6`. The same line, plus one line for every press of the key saying what happened and why, is in `BepInEx\trunk-anywhere.log`, which survives restarts. If the key seems to do nothing, that file says which of the reasons above stopped it.
+Check `BepInEx\LogOutput.log` for `===== Trunk Anywhere 0.2.1 started, key F6`. The same line, plus one line for every press of the key saying what happened and why, is in `BepInEx\trunk-anywhere.log`, which survives restarts. If the key seems to do nothing, that file says which of the reasons above stopped it.
 
 ## Feedback and bug reports
 
