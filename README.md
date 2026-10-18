@@ -33,14 +33,9 @@ The key can be changed or turned off in the config.
 
 ## Known issues and limits
 
-This mod moves items between your bag and your trunk. Back up your save before trying it for the first time.
-
 - Any window the game treats as blocking stops the key, the settings menu included.
 - An unpaid item that is already in the trunk (for example, bought there before you installed the mod) can still be moved around inside the trunk or taken out.
 - Door boxes are not the trunk and are not guarded against unpaid items.
-- If the mod could not hook the bag screen (the log says so), the key only works while the bag screen is closed.
-
-If an item goes missing, an unpaid item gets into the trunk, or the key does something unexpected, please tell me (see [Feedback](#feedback-and-bug-reports)).
 
 ## Requirements
 

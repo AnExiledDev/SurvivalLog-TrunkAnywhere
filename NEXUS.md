@@ -25,12 +25,10 @@ Works in English and Chinese.
 
 [size=5]Known issues[/size]
 [list]
-[*]Back up your save before trying it for the first time.[/*]
 [*]The key does nothing while any other window is open, the settings menu included.[/*]
 [*]An unpaid item already in the trunk from before can still be moved or taken out.[/*]
 [*]Door boxes are not covered by the unpaid-item check.[/*]
 [/list]
-If you run into anything strange, please tell me (see Feedback below).
 
 [size=5]Requirements[/size]
 [list]
@@ -84,12 +82,10 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnyw
 
 [size=5]已知问题[/size]
 [list]
-[*]第一次使用前请备份存档。[/*]
 [*]打开任何其他窗口时（包括设置菜单），按键不起作用。[/*]
 [*]之前已经在后备箱里的未付款物品，仍然可以移动或取出。[/*]
 [*]门口箱子不受未付款物品检查。[/*]
 [/list]
-如果遇到任何奇怪的情况，请告诉我（见下方反馈）。
 
 [size=5]前置要求[/size]
 [list]
