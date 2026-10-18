@@ -1,5 +1,5 @@
 Name: Trunk Anywhere
-Summary: Press F6 to open your vehicle's trunk from anywhere before the disaster. Unpaid shop items are kept out of the trunk. 在灾难来临前按 F6，在任何地方打开车辆的后备箱。未付款的商店物品不能放进后备箱。
+Summary: Press F6 to open your vehicle's trunk from anywhere before the disaster. Buy straight into the trunk at the shop. 在灾难来临前按 F6，在任何地方打开车辆的后备箱。在商店可以直接买进后备箱。
 
 Description (BBCode):
 Before the disaster, sorting your trunk means finding the cart and using its organize trunk action. Trunk Anywhere opens the same backpack and trunk view with one key, wherever you are.
@@ -8,8 +8,8 @@ Before the disaster, sorting your trunk means finding the cart and using its org
 [list]
 [*][b]Trunk key[/b]: F6 opens your backpack next to your vehicle's trunk.[/*]
 [*][b]Game's own view[/b]: the same trunk view the cart opens, with the game's own checks.[/*]
-[*][b]Unpaid items stay out[/b]: you can't drag an unpaid item into the trunk. Pay for it first.[/*]
-[*][b]No buying into the trunk[/b]: the shop's trunk tab won't buy. Buy into your bag, then move it.[/*]
+[*][b]No dragging unpaid items in[/b]: you can't drag an unpaid item into the trunk. Pay for it first.[/*]
+[*][b]Buy into the trunk[/b]: the shop's trunk tab buys straight into the trunk, on the same bill as your bag.[/*]
 [*][b]Take All to Trunk[/b]: when looting with your trunk as a tab, a new button under Take by Type moves everything straight into the trunk. If the trunk fills up, the rest stays where it was.[/*]
 [/list]
 
@@ -26,7 +26,7 @@ Works in English and Chinese.
 [size=5]Known issues[/size]
 [list]
 [*]The key does nothing while any other window is open, the settings menu included.[/*]
-[*]An unpaid item already in the trunk from before can still be moved or taken out.[/*]
+[*]Only drags into the trunk are checked. An item from the trunk tab that is not yet paid for can still be moved inside the trunk or out of it.[/*]
 [*]Door boxes are not covered by the unpaid-item check.[/*]
 [/list]
 
@@ -65,8 +65,8 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnyw
 [list]
 [*][b]后备箱按键[/b]：F6 打开你的背包和车辆后备箱。[/*]
 [*][b]游戏自己的界面[/b]：与小推车打开的后备箱界面相同，游戏自己的检查依然有效。[/*]
-[*][b]未付款物品不能放入[/b]：不能把未付款的物品拖进后备箱，请先付款。[/*]
-[*][b]不能直接买进后备箱[/b]：商店的后备箱标签页不能购买。请先买进背包，再移过去。[/*]
+[*][b]不能拖入未付款物品[/b]：不能把未付款的物品拖进后备箱，请先付款。[/*]
+[*][b]直接买进后备箱[/b]：在商店的后备箱标签页购买，物品直接放进后备箱，和背包里的物品一起结账。[/*]
 [*][b]「全部放进后备箱」[/b]：搜刮时如果后备箱是标签页之一，「分类取出」下方会出现一个新按钮，把所有物品直接放进后备箱。后备箱装满后，剩下的物品留在原处。[/*]
 [/list]
 
@@ -83,7 +83,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnyw
 [size=5]已知问题[/size]
 [list]
 [*]打开任何其他窗口时（包括设置菜单），按键不起作用。[/*]
-[*]之前已经在后备箱里的未付款物品，仍然可以移动或取出。[/*]
+[*]只检查拖进后备箱的操作。在后备箱标签页选购、还没付款的物品，仍然可以在后备箱里移动或取出。[/*]
 [*]门口箱子不受未付款物品检查。[/*]
 [/list]
 

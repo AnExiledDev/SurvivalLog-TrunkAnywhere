@@ -13,9 +13,7 @@ public static class Texts
 {
     public static readonly Phrase TakeAllLabel = new("Take All to Trunk", "全部放进后备箱");
 
-    public static readonly Phrase Blocked = new("Pay for it first: unpaid items can't go in the trunk.", "请先付款：未付款的物品不能放进后备箱。");
+    public static readonly Phrase Blocked = new("Pay for it first: unpaid items can't be moved into the trunk.", "请先付款：未付款的物品不能移进后备箱。");
 
-    public static readonly Phrase BuyBlocked = new("Buy into your bag: unpaid items can't go in the trunk.", "请买进背包：未付款的物品不能放进后备箱。");
-
-    public static IReadOnlyList<Phrase> All { get; } = new[] { TakeAllLabel, Blocked, BuyBlocked };
+    public static IReadOnlyList<Phrase> All { get; } = new[] { TakeAllLabel, Blocked };
 }

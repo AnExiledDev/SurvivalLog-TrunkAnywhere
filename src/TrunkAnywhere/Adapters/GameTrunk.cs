@@ -143,9 +143,6 @@ internal sealed class GameTrunk
         Send("pop text", () => Ac_PopText_AddPopText.SendAction(Texts.Blocked.Pick(GameLanguage.IsChinese())));
     }
 
-    /// <summary>Says why a trunk-tab buy did nothing. The refused buy changed no state, so there is nothing to redraw.</summary>
-    public void ShowBuyRefused() => Send("pop text", () => Ac_PopText_AddPopText.SendAction(Texts.BuyBlocked.Pick(GameLanguage.IsChinese())));
-
     private static BagView ReadBag(ReduxUISystem ui) =>
         BagView.Classify(ui.IsUIActive(Il2CppType.Of<WebUI_BackpackUI>()), BackpackHooks.LastOpened, VehicleConfig.TrunkOwnerId);
 
