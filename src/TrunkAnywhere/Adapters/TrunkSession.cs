@@ -12,16 +12,22 @@ namespace TrunkAnywhere.Adapters;
 internal sealed class TrunkSession
 {
     private readonly GameTrunk _game;
-    private readonly KeyCode _trunkKey;
+    private KeyCode _trunkKey = KeyCode.None;
     private readonly Action<string> _log;
     private OpenStep _step = new OpenStep.Idle();
     private bool _hasCheckedKeyBinding;
 
-    public TrunkSession(GameTrunk game, KeyCode trunkKey, Action<string> log)
+    public TrunkSession(GameTrunk game, Action<string> log)
     {
         _game = game;
-        _trunkKey = trunkKey;
         _log = log;
+    }
+
+    /// <summary>Takes a new key. The check that the game does not use it too runs again at the next press in a game.</summary>
+    public void UseKey(KeyCode trunkKey)
+    {
+        _trunkKey = trunkKey;
+        _hasCheckedKeyBinding = false;
     }
 
     public void Update()
