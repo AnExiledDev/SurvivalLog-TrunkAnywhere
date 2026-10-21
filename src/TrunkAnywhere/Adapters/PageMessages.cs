@@ -28,7 +28,7 @@ internal static class PageMessages
         }
         catch (Exception ex)
         {
-            log("could not listen for page messages, the Take All to Trunk button will do nothing: " + ex.Message);
+            log("could not hook page messages, the Take All to Trunk button will do nothing: " + ex.Message);
         }
     }
 

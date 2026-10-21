@@ -41,7 +41,7 @@
     <AssemblyMetadata Include="ModManager.Description" Value="Press F6 to open your vehicle's trunk from anywhere before the disaster. Buy straight into the trunk at the shop.&#10;在灾难来临前按 F6，在任何地方打开车辆的后备箱。在商店可以直接买进后备箱。" />
     <AssemblyMetadata Include="ModManager.Author" Value="AnExiledDev" />
     <AssemblyMetadata Include="ModManager.Category" Value="QualityOfLife" />
-    <AssemblyMetadata Include="ModManager.GameVersion" Value="1.1.18902" />
+    <AssemblyMetadata Include="ModManager.GameVersion" Value="1.1.19131" />
     <AssemblyMetadata Include="ModManager.Settings" Value="Restart" />
     <AssemblyMetadata Include="ModManager.NexusId" Value="64" />
     <AssemblyMetadata Include="ModManager.GitHub" Value="AnExiledDev/SurvivalLog-TrunkAnywhere" />

@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using BepInEx.Logging;
+using TrunkAnywhere.Core;
 
 namespace TrunkAnywhere.Adapters;
 
@@ -26,7 +27,8 @@ internal sealed class TrunkLog
     {
         try
         {
-            _bepinex.LogInfo(message);
+            if (HookFailure.Is(message)) _bepinex.LogError(message);
+            else _bepinex.LogInfo(message);
         }
         catch (Exception)
         {
