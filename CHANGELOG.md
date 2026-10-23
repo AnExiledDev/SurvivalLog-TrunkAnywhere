@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.2
+
+- Works with Survival Log 1.1.19611, which changed how the game checks whether a key belongs to one of its own actions.
+- Made for Survival Log 1.1.19611.
+
 ## 0.4.1
 
 - After a game update, a hook that can no longer be placed is logged as an error, so the Mod Manager can mark the mod as maybe needing an update.

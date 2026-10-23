@@ -91,7 +91,9 @@ internal sealed class GameTrunk
     {
         try
         {
-            return HotKeyManager.IsKeyTakenByOtherAction(key);
+            // The game's check skips the action it is asked about; HideUI is the one it always skipped before it took
+            // that argument, so the answer stays the same.
+            return HotKeyManager.IsKeyTakenByOtherAction(key, HotKeyAction.HideUI);
         }
         catch (Exception ex)
         {
