@@ -2,6 +2,8 @@ Name: Trunk Anywhere
 Summary: Press F6 to open your vehicle's trunk next to your backpack from anywhere before the disaster, with no walk back to the cart. Buy from the shop straight into the trunk on the same bill, and move a whole loot pile into the trunk with the new Take All to Trunk button. Same trunk view and checks as the game's own.
 
 Description (BBCode):
+[center][img]https://sldb.core-directive.com/media/save/1-save-safe.png[/img][/center]
+
 Before the disaster, sorting your trunk means finding the cart and using its organize trunk action. Trunk Anywhere opens the same backpack and trunk view with one key, wherever you are.
 
 [size=5]Main features[/size]
