@@ -12,7 +12,7 @@ namespace TrunkAnywhere;
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.trunkanywhere";
-    private const string Version = "0.4.2";
+    private const string Version = "0.4.3";
 
     public override void Load()
     {

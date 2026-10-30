@@ -42,7 +42,7 @@ internal sealed class GameTrunk
         return new PressRead.InGame(new GameState(
             loadedStage,
             VehicleConfig.HasVehicle(),
-            HotKeyManager.IsUGUIInputFocused(),
+            HotKeyManager.IsUGUIInputFocused() || OptionalLive.IsTyping(),
             InputHooks.IsGameInputOff,
             ui.HasModalUIOpenExcept(Il2CppType.Of<WebUI_BackpackUI>()),
             ReadBag(ui)));

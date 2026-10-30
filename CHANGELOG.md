@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.3
+
+- The trunk key no longer opens the trunk while you type in a search box or any other text box in another mod's window. This needs Exiled's Toolkit 0.12.0 or newer.
+- Made for Survival Log 1.1.20151.
+
 ## 0.4.2
 
 - Updated for Survival Log 1.1.19611, which changed how the game checks its own hotkeys.
