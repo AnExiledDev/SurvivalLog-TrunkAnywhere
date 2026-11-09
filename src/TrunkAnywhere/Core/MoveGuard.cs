@@ -1,6 +1,6 @@
 namespace TrunkAnywhere.Core;
 
-/// <summary>One item about to change inventory. IsUnpaid is the game's own unpaid flag on a shop item not yet paid for.</summary>
+/// <summary>One item about to change inventory. IsUnpaid is the game's unpaid flag on a shop item not yet paid for.</summary>
 public sealed record ItemMove(long FromOwnerId, long ToOwnerId, bool IsUnpaid);
 
 public enum MoveVerdict

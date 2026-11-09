@@ -79,7 +79,7 @@ internal static class UnpaidGuard
         }
     }
 
-    /// <summary>Looked up where the game's own move finds the item. An item not found there is left to the game, which refuses the move itself.</summary>
+    /// <summary>Looked up where the game's move finds the item. An item not found there is left to the game, which refuses the move itself.</summary>
     private static bool IsUnpaid(Il2CppItems? owners, long fromOwnerId, long itemId)
     {
         if (owners == null || !owners.TryGetValue(fromOwnerId, out var held) || held == null) return false;

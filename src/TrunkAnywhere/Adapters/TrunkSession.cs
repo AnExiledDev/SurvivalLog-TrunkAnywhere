@@ -195,6 +195,6 @@ internal sealed class TrunkSession
 
         _hasCheckedKeyBinding = true;
 
-        if (_game.IsKeyTakenByGame(_trunkKey)) _log($"{_trunkKey} is also bound to one of the game's own actions; pick another TrunkKey or rebind that action in the game's key settings");
+        if (_game.IsKeyTakenByGame(_trunkKey)) _log($"{_trunkKey} is also bound to one of the game's actions; pick another TrunkKey or rebind that action in the game's key settings");
     }
 }

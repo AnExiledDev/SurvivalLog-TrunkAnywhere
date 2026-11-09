@@ -6,7 +6,7 @@ using TrunkAnywhere.Core;
 namespace TrunkAnywhere.Adapters;
 
 /// <summary>
-/// The mod's half that lives in the game's web UI: page.js, run in the root document the game's own pages sit in. It
+/// The mod's half that lives in the game's web UI: page.js, run in the root document the game's pages sit in. It
 /// adds the Take All to Trunk button to the bag screen. The web view can reload at any time and lose the script, so the
 /// script is sent again every couple of seconds; it returns at once when it is already running.
 /// </summary>

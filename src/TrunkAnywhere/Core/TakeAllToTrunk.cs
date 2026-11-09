@@ -26,7 +26,7 @@ public abstract record TakeAllDecision
     {
     }
 
-    /// <summary>The game's own whole-container move, the one its Take All button sends, aimed at the trunk.</summary>
+    /// <summary>The game's whole-container move, the one its Take All button sends, aimed at the trunk.</summary>
     public sealed record Move(long FromOwnerId, long ToOwnerId) : TakeAllDecision;
 
     /// <summary>Nothing moves, and the player is told why.</summary>

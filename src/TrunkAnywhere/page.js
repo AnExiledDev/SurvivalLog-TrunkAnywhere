@@ -1,6 +1,6 @@
 // Trunk Anywhere's web half. Runs in Root.html, the document every game page iframe sits in. On the bag screen's
-// loot view it adds a Take All to Trunk button under the game's Take by Type button, styled as the game's own. The
-// button only asks; the plugin reads the screen again and makes the game's own whole-container move into the trunk.
+// loot view it adds a Take All to Trunk button under the game's Take by Type button, styled as the game's. The
+// button only asks; the plugin reads the screen again and makes the game's whole-container move into the trunk.
 // Vue redraws the buttons' column whenever the screen changes, so it is checked on a short poll. Sent again by the
 // plugin every couple of seconds; the guard below makes a second copy return at once.
 (function () {
@@ -34,7 +34,7 @@
 
   // The plugin sets __trunkanywhereShowTakeAll on every send, false while the player has turned the button off.
   // Reads the page's Vue state, which a game update can rename. A state that cannot be read hides the button: the
-  // game's own buttons still work, and a button shown on the wrong screen would only be refused by the plugin.
+  // game's buttons still work, and a button shown on the wrong screen would only be refused by the plugin.
   function buttonState(doc) {
     try {
       var setup = doc.getElementById('app')._vnode.component.setupState;

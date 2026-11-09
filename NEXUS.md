@@ -1,5 +1,5 @@
 Name: Trunk Anywhere
-Summary: Press F6 to open your vehicle's trunk next to your backpack from anywhere before the disaster, with no walk back to the cart. Buy from the shop straight into the trunk on the same bill, and move a whole loot pile into the trunk with the new Take All to Trunk button. Same trunk view and checks as the game's own.
+Summary: Press F6 to open your vehicle's trunk next to your backpack from anywhere before the disaster, with no walk back to the cart. Buy from the shop straight into the trunk on the same bill, and move a whole loot pile into the trunk with the new Take All to Trunk button. Same trunk view and checks as the game's.
 
 Description (BBCode):
 [center][img]https://sldb.core-directive.com/media/save/1-save-safe.png[/img][/center]
@@ -9,7 +9,7 @@ Before the disaster, sorting your trunk means finding the cart and using its org
 [size=5]Main features[/size]
 [list]
 [*][b]Trunk key[/b]: F6 opens your backpack next to your vehicle's trunk.[/*]
-[*][b]Game's own view[/b]: the same trunk view the cart opens, with the game's own checks.[/*]
+[*][b]Game's view[/b]: the same trunk view the cart opens, with the game's checks.[/*]
 [*][b]No dragging unpaid items in[/b]: you can't drag an unpaid item into the trunk. Pay for it first.[/*]
 [*][b]Buy into the trunk[/b]: the shop's trunk tab buys straight into the trunk, on the same bill as your bag.[/*]
 [*][b]Take All to Trunk[/b]: when looting with your trunk as a tab, a new button under Take by Type moves everything straight into the trunk. If the trunk fills up, the rest stays where it was. You can turn the button off in the config.[/*]
@@ -21,7 +21,7 @@ Before the disaster, sorting your trunk means finding the cart and using its org
 [/list]
 The key can be changed in the config.
 
-The mod adds no data of its own to your save. Items you move are moved the same way the game's own trunk view moves them. You can remove it at any time.
+The mod adds no data of its own to your save. Items you move are moved the same way the game's trunk view moves them. You can remove it at any time.
 
 Works in English and Chinese.
 

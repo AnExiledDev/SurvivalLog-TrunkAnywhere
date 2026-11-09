@@ -5,7 +5,7 @@ using HarmonyLib;
 namespace TrunkAnywhere.Adapters;
 
 /// <summary>
-/// Keeps a copy of the game's own switch that stops all of its hotkeys (HotKeyManager._isInputDisabled, the bool
+/// Keeps a copy of the game's switch that stops all of its hotkeys (HotKeyManager._isInputDisabled, the bool
 /// HotKeyManager.Update tests first), so the trunk key stays off whenever the game's keys are. A postfix, so it still
 /// runs when another mod's prefix skips the game's update. Static because a Harmony patch has nowhere else to look.
 /// </summary>
@@ -28,7 +28,7 @@ internal static class InputHooks
         }
         catch (Exception ex)
         {
-            log("could not hook HotKeyManager.Update, so the key only knows about focused text fields, not the game's own input switch: " + ex.Message);
+            log("could not hook HotKeyManager.Update, so the key only knows about focused text fields, not the game's input switch: " + ex.Message);
         }
     }
 

@@ -12,7 +12,7 @@ using Il2CppHeld = Il2CppSystem.Collections.Generic.Dictionary<long, GameCore.Ho
 namespace TrunkAnywhere.Adapters;
 
 /// <summary>
-/// The game's side of the trunk key and the Take All to Trunk button: what is open, the game's own trunk open path, and
+/// The game's side of the trunk key and the Take All to Trunk button: what is open, the game's trunk open path, and
 /// its whole-container move. Reads go through singletons the game already made; actions are only ever sent from the ticker's frame, never from inside a reducer. Each call fails
 /// soft, logging once per kind of call.
 /// </summary>
@@ -116,7 +116,7 @@ internal sealed class GameTrunk
         return new TakeAllRead.Open(bag.IsDualBag, bag.OwnerId_A, bag.OwnerId_B, TabOwnerIds(bag), other?.Count ?? 0, HoldsUnpaid(other));
     }
 
-    /// <summary>The game's own whole-container move, which its Take All button sends; the game's own lock checks still apply.</summary>
+    /// <summary>The game's whole-container move, which its Take All button sends; the game's lock checks still apply.</summary>
     public void MoveBag(long fromOwnerId, long toOwnerId) => Send("bag move", () => Ac_Item_MoveBag.SendAction(fromOwnerId, toOwnerId));
 
     public void CloseBackpack() => Send("backpack close", () => Ac_BackpackUI_Close.SendAction());

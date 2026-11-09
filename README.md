@@ -6,14 +6,14 @@ Before the disaster, the only way to sort your trunk is the cart's organize trun
 
 ## Features
 
-- **Trunk key**: press `F6` to open your backpack beside your vehicle's trunk, wherever you are. It uses the game's own trunk view, the same one the cart's organize trunk action opens, so the game's own checks apply.
+- **Trunk key**: press `F6` to open your backpack beside your vehicle's trunk, wherever you are. It uses the game's trunk view, the same one the cart's organize trunk action opens, so the game's checks apply.
 - **Works from your backpack**: if your own backpack is already open, it closes and the trunk view opens in its place.
 - **No dragging unpaid items in**: dragging an unpaid item into the trunk does nothing. The item stays where it was and a message says "Pay for it first: unpaid items can't be moved into the trunk." This check sits where the game moves any item between inventories, so it holds for every drag.
 - **Buy straight into the trunk**: buying on the shop's trunk tab works as it does in the game. The item goes into the trunk and onto the same bill as your bag, and you pay for both together.
-- **Take All to Trunk**: when you loot a storage or container and your trunk is one of the tabs on the left, a Take All to Trunk button sits right under Take by Type. It moves everything in the container straight into the trunk, without switching tabs, using the game's own Take All move. It is greyed out when the container is empty and hidden while the trunk tab is the one shown, where the game's own Take All already fills the trunk. If the trunk fills up, the rest stays in the container and the game says so. If the container holds an unpaid item, nothing moves and the "Pay for it first" message shows. `TakeAllToTrunk` in the config turns the button off.
+- **Take All to Trunk**: when you loot a storage or container and your trunk is one of the tabs on the left, a Take All to Trunk button sits right under Take by Type. It moves everything in the container straight into the trunk, without switching tabs, using the game's Take All move. It is greyed out when the container is empty and hidden while the trunk tab is the one shown, where the game's Take All already fills the trunk. If the trunk fills up, the rest stays in the container and the game says so. If the container holds an unpaid item, nothing moves and the "Pay for it first" message shows. `TakeAllToTrunk` in the config turns the button off.
 - **Log file**: every key press and Take All to Trunk press and what came of it, and every unpaid item kept out of the trunk, is written to `BepInEx\trunk-anywhere.log`.
 
-Trunk Anywhere adds no data of its own to your save. Items you move with the trunk view are moved in your save the same way the game's own trunk view moves them. You can remove the mod at any time; the trunk and everything in it stay as they are.
+Trunk Anywhere adds no data of its own to your save. Items you move with the trunk view are moved in your save the same way the game's trunk view moves them. You can remove the mod at any time; the trunk and everything in it stay as they are.
 
 ## Hotkeys
 
