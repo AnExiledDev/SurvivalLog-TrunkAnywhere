@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.4
+
+- New `[Looting] TakeAllToTrunk` setting turns the Take All to Trunk button off. It is on by default, and a change takes effect at once.
+- Made for Survival Log 1.1.20719.
+
 ## 0.4.3
 
 - The trunk key no longer opens the trunk while you type in a search box or any other text box in another mod's window. This needs Exiled's Toolkit 0.12.0 or newer.

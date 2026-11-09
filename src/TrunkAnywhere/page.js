@@ -32,6 +32,7 @@
 
   // ===== What the screen shows =====
 
+  // The plugin sets __trunkanywhereShowTakeAll on every send, false while the player has turned the button off.
   // Reads the page's Vue state, which a game update can rename. A state that cannot be read hides the button: the
   // game's own buttons still work, and a button shown on the wrong screen would only be refused by the plugin.
   function buttonState(doc) {
@@ -44,7 +45,7 @@
         if (tabs[i] && tabs[i].isTrunkTab === true) trunkTab = i;
       }
 
-      var isWanted = setup.isDualBag === true && setup.isTrunk !== true && trunkTab >= 0 && tabs[trunkTab].readonly !== true && setup.curATab !== trunkTab;
+      var isWanted = window.__trunkanywhereShowTakeAll !== false && setup.isDualBag === true && setup.isTrunk !== true && trunkTab >= 0 && tabs[trunkTab].readonly !== true && setup.curATab !== trunkTab;
 
       return { isWanted: isWanted, isEmpty: setup.toSelfEmpty === true };
     } catch (e) {

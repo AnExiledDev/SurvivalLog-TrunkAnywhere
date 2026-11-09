@@ -12,7 +12,7 @@ Before the disaster, sorting your trunk means finding the cart and using its org
 [*][b]Game's own view[/b]: the same trunk view the cart opens, with the game's own checks.[/*]
 [*][b]No dragging unpaid items in[/b]: you can't drag an unpaid item into the trunk. Pay for it first.[/*]
 [*][b]Buy into the trunk[/b]: the shop's trunk tab buys straight into the trunk, on the same bill as your bag.[/*]
-[*][b]Take All to Trunk[/b]: when looting with your trunk as a tab, a new button under Take by Type moves everything straight into the trunk. If the trunk fills up, the rest stays where it was.[/*]
+[*][b]Take All to Trunk[/b]: when looting with your trunk as a tab, a new button under Take by Type moves everything straight into the trunk. If the trunk fills up, the rest stays where it was. You can turn the button off in the config.[/*]
 [/list]
 
 [size=5]Hotkeys[/size]
@@ -37,7 +37,7 @@ Works in English and Chinese.
 
 [size=5]Requirements[/size]
 [list]
-[*]Survival Log 1.1.20151. A game update can break it until the mod is updated.[/*]
+[*]Survival Log 1.1.20719. A game update can break it until the mod is updated.[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]. Install it first.[/*]
 [*]Optional: [url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.4.0 or newer. With it, settings changed on the Mod Manager's Mods screen take effect without restarting the game. Without it, they take effect at the next game start. With 0.12.0 or newer, the trunk key also does nothing while you type in another mod's window.[/*]
 [*]Optional: [url=https://www.nexusmods.com/survivallog/mods/73]Mod Manager[/url]. With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.[/*]
@@ -76,7 +76,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnyw
 [*][b]游戏自己的界面[/b]：与小推车打开的后备箱界面相同，游戏自己的检查依然有效。[/*]
 [*][b]不能拖入未付款物品[/b]：不能把未付款的物品拖进后备箱，请先付款。[/*]
 [*][b]直接买进后备箱[/b]：在商店的后备箱标签页购买，物品直接放进后备箱，和背包里的物品一起结账。[/*]
-[*][b]「全部放进后备箱」[/b]：搜刮时如果后备箱是标签页之一，「分类取出」下方会出现一个新按钮，把所有物品直接放进后备箱。后备箱装满后，剩下的物品留在原处。[/*]
+[*][b]「全部放进后备箱」[/b]：搜刮时如果后备箱是标签页之一，「分类取出」下方会出现一个新按钮，把所有物品直接放进后备箱。后备箱装满后，剩下的物品留在原处。可以在配置中关闭这个按钮。[/*]
 [/list]
 
 [size=5]快捷键[/size]
@@ -100,7 +100,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnyw
 
 [size=5]前置要求[/size]
 [list]
-[*]Survival Log 1.1.20151。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
+[*]Survival Log 1.1.20719。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]，请先安装。[/*]
 [*]可选：[url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.4.0 或更新版本。装了它，在 Mod Manager 的「模组」界面改动的设置无需重启游戏即可生效；没装的话，改动在下次启动游戏时生效。装了 0.12.0 或更新版本时，在其他模组的窗口里打字，后备箱按键也不会起作用。[/*]
 [*]可选：[url=https://www.nexusmods.com/survivallog/mods/73]Mod Manager[/url]。装了它，可以在游戏里它的「模组」界面修改每项设置，并看到每项的说明，不用打开配置文件。[/*]

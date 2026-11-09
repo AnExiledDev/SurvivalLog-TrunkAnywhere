@@ -20,11 +20,15 @@ internal sealed class WebPage
     private float _nextCheckAt;
     private bool _hasReportedInstall;
     private bool _hasReportedRunFailure;
+    private bool _isTakeAllShown = true;
 
     public WebPage(Action<string> log)
     {
         _log = log;
     }
+
+    /// <summary>Whether the page shows the Take All to Trunk button; the next send tells a page that is already running.</summary>
+    public void ShowTakeAll(bool isShown) => _isTakeAllShown = isShown;
 
     public void KeepInstalled(float now)
     {
@@ -32,7 +36,7 @@ internal sealed class WebPage
 
         _nextCheckAt = now + CheckSeconds;
 
-        if (!Run(LabelLine() + Script()) || _hasReportedInstall) return;
+        if (!Run(LabelLine() + ShowLine() + Script()) || _hasReportedInstall) return;
 
         _hasReportedInstall = true;
         _log("page script sent to the web UI");
@@ -63,6 +67,8 @@ internal sealed class WebPage
     // Set on every send, ahead of the script's guard, so a language change in the game's settings reaches a page that
     // is already running.
     private static string LabelLine() => "window.__trunkanywhereLabel = '" + Texts.TakeAllLabel.Pick(GameLanguage.IsChinese()) + "';\n";
+
+    private string ShowLine() => "window.__trunkanywhereShowTakeAll = " + (_isTakeAllShown ? "true" : "false") + ";\n";
 
     private string Script()
     {

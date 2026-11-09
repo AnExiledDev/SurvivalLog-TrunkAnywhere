@@ -179,6 +179,24 @@ public class PageScriptTests
         Assert.Single(page.Posted, message => message is PageMessage.Diag);
     }
 
+    /// <summary>The setting applies live: the plugin's next send hides the button, and turning it back on shows it again.</summary>
+    [Fact]
+    public void Turned_off_the_button_hides_and_comes_back_when_turned_on()
+    {
+        var page = new PageScript();
+
+        page.OpenLoot();
+        page.Run("window.__trunkanywhereShowTakeAll = false;");
+        page.Poll();
+
+        Assert.False(page.Truth("isShown(trunkButton())"));
+
+        page.Run("window.__trunkanywhereShowTakeAll = true;");
+        page.Poll();
+
+        Assert.True(page.Truth("isShown(trunkButton())"));
+    }
+
     [Fact]
     public void Sending_the_script_again_does_not_start_a_second_copy()
     {

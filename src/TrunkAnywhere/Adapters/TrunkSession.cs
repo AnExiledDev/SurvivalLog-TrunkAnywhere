@@ -16,6 +16,7 @@ internal sealed class TrunkSession
     private readonly Action<string> _log;
     private OpenStep _step = new OpenStep.Idle();
     private bool _hasCheckedKeyBinding;
+    private bool _isTakeAllOn = true;
 
     public TrunkSession(GameTrunk game, Action<string> log)
     {
@@ -29,6 +30,9 @@ internal sealed class TrunkSession
         _trunkKey = trunkKey;
         _hasCheckedKeyBinding = false;
     }
+
+    /// <summary>Turns the Take All to Trunk button on or off. Off, a press the page sent before it hid the button moves nothing.</summary>
+    public void UseTakeAll(bool isOn) => _isTakeAllOn = isOn;
 
     public void Update()
     {
@@ -51,6 +55,9 @@ internal sealed class TrunkSession
         {
             switch (message)
             {
+                case PageMessage.TakeAllToTrunk when !_isTakeAllOn:
+                    _log("take all to trunk: the button is turned off");
+                    break;
                 case PageMessage.TakeAllToTrunk:
                     AnswerTakeAll();
                     break;
