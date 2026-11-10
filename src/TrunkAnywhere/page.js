@@ -15,7 +15,7 @@
     var PAGE = /BackpackUI\.html/;
     var BUTTON_CLASS = 'ta-take-trunk';
     var DEFAULT_LABEL = 'Take All to Trunk';
-    var ARROW = '◀';
+    var ARROW = '\u25C0';
 
     var reported = {};
 
