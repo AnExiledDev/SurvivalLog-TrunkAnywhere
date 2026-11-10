@@ -1,6 +1,6 @@
-// Just enough of Root.html and the bag screen (BackpackUI.html) for page.js to run in Jint: the root document with the
-// bag screen's iframe, the vuplex bridge, a DOM with click dispatch, a poll, and the loot view's column of transfer
-// buttons with the Vue state the script reads. Test code only; nothing here ships.
+// Just enough of Root.html and the bag screen (BackpackUI.html) for page.js and Exiled's Toolkit's api.js to run in
+// Jint: the root document with the bag screen's iframe, the vuplex bridge, a DOM with click dispatch, a poll, and the
+// loot view's column of transfer buttons with the Vue state the script reads. Test code only; nothing here ships.
 var window = this;
 
 // ---------------------------------------------------------------- poll
@@ -160,6 +160,10 @@ var FakeDocument = class {
   querySelector(selector) {
     return this.querySelectorAll(selector)[0] || null;
   }
+
+  getElementsByTagName(tagName) {
+    return this.querySelectorAll(tagName);
+  }
 };
 
 // A click on an element and every element above it, as a browser bubbles it. A disabled button gets no click.
@@ -236,6 +240,8 @@ function openBag(state) {
   node(doc, app, 'div', 'backpack-container');
   drawControls(doc);
   frame.src = 'https://game.local/UI/BackpackUI/BackpackUI.html';
+  // The Toolkit's page check skips a document whose address is still blank.
+  doc.defaultView = { location: { href: frame.src } };
   frame.contentDocument = doc;
 
   return doc;

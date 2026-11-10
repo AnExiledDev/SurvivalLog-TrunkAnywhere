@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using ExiledToolkit;
+using ExiledToolkit.Game;
 using GameCore.HotUpdate;
 using GameCore.HotUpdate.Battle.Logic;
 using GameCore.HotUpdate.Battle.Show;
@@ -42,7 +44,7 @@ internal sealed class GameTrunk
         return new PressRead.InGame(new GameState(
             loadedStage,
             VehicleConfig.HasVehicle(),
-            HotKeyManager.IsUGUIInputFocused() || OptionalLive.IsTyping(),
+            HotKeyManager.IsUGUIInputFocused() || Typing.IsActive,
             InputHooks.IsGameInputOff,
             ui.HasModalUIOpenExcept(Il2CppType.Of<WebUI_BackpackUI>()),
             ReadBag(ui)));

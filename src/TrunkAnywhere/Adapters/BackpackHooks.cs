@@ -1,6 +1,6 @@
 using System;
+using ExiledToolkit.Game;
 using GameCore.HotUpdate.ReduxUI;
-using HarmonyLib;
 using TrunkAnywhere.Core;
 
 namespace TrunkAnywhere.Adapters;
@@ -13,10 +13,9 @@ namespace TrunkAnywhere.Adapters;
 internal static class BackpackHooks
 {
     private static readonly object Gate = new();
-    private static Action<string> _log = _ => { };
+    private static PatchKit? _hooks;
     private static SeenScreen? _lastOpened;
     private static bool _isWatching;
-    private static bool _hasReportedHookFailure;
 
     /// <summary>
     /// The screen last opened, or null when it was closed since or never seen. Always null when a hook could not be
@@ -30,13 +29,13 @@ internal static class BackpackHooks
         }
     }
 
-    public static void Apply(Harmony harmony, Action<string> log)
+    public static void Apply(PatchKit hooks, Action<string> log)
     {
-        _log = log;
-        var isOpenHooked = Patch(harmony, "RA_OpenUI", nameof(AfterOpen));
+        _hooks = hooks;
+        var isOpenHooked = Patch(hooks, "RA_OpenUI", nameof(AfterOpen));
         // RA_Close is compiled into Trigger_RA_Close, so a patch on RA_Close itself would never run.
-        var isCloseHooked = Patch(harmony, "Trigger_RA_Close", nameof(AfterClose));
-        var isClearHooked = Patch(harmony, "Trigger_RA_ClearUI", nameof(AfterClose));
+        var isCloseHooked = Patch(hooks, "Trigger_RA_Close", nameof(AfterClose));
+        var isClearHooked = Patch(hooks, "Trigger_RA_ClearUI", nameof(AfterClose));
         _isWatching = isOpenHooked && isCloseHooked && isClearHooked;
 
         log(_isWatching
@@ -44,21 +43,8 @@ internal static class BackpackHooks
             : "the bag screen is not watched, so the key works only while the bag screen is closed");
     }
 
-    private static bool Patch(Harmony harmony, string method, string postfix)
-    {
-        try
-        {
-            harmony.Patch(AccessTools.Method(typeof(Reducer_Web_BackpackUI), method), postfix: new HarmonyMethod(typeof(BackpackHooks), postfix));
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            _log($"could not hook {nameof(Reducer_Web_BackpackUI)}.{method}: {ex.Message}");
-
-            return false;
-        }
-    }
+    private static bool Patch(PatchKit hooks, string method, string postfix) =>
+        hooks.Patch(typeof(BackpackHooks), typeof(Reducer_Web_BackpackUI), method, postfix: postfix);
 
     private static void AfterOpen(State_Web_BackpackUI __result) =>
         Record(() =>
@@ -77,10 +63,7 @@ internal static class BackpackHooks
         }
         catch (Exception ex)
         {
-            if (_hasReportedHookFailure) return;
-
-            _hasReportedHookFailure = true;
-            _log("a bag screen hook failed (only the first failure is logged): " + ex);
+            _hooks?.Fail("recording the bag screen", ex);
         }
     }
 }

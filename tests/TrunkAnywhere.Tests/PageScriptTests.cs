@@ -202,9 +202,39 @@ public class PageScriptTests
     {
         var page = new PageScript();
 
-        page.Run("var firstPolls = intervals.length");
+        page.Run("var watches = 0; var watchPages = ExiledToolkit.watchPages; ExiledToolkit.watchPages = function () { watches++; return watchPages.apply(this, arguments); };");
         page.SendScriptAgain();
 
-        Assert.True(page.Truth("intervals.length === firstPolls"));
+        Assert.Equal(0, page.Number("watches"));
+    }
+
+    /// <summary>The game can run Trunk Anywhere's script before the Toolkit's; the button then waits for the Toolkit and shows once it has loaded.</summary>
+    [Fact]
+    public void Sent_before_the_Toolkit_the_script_waits_for_it_and_then_adds_the_button()
+    {
+        var page = new PageScript(isToolkitFirst: false);
+
+        page.OpenLoot();
+
+        Assert.Equal(0, page.Number("trunkButtons().length"));
+
+        page.LoadToolkit();
+        page.Poll();
+
+        Assert.True(page.Truth("isShown(trunkButton())"));
+        Assert.Equal(1, page.Number("trunkButtons().length"));
+    }
+
+    [Fact]
+    public void Pressing_the_button_after_a_late_Toolkit_still_reaches_the_plugin()
+    {
+        var page = new PageScript(isToolkitFirst: false);
+
+        page.OpenLoot();
+        page.LoadToolkit();
+        page.Poll();
+        page.Press("trunkButton()");
+
+        Assert.Equal(new PageMessage.TakeAllToTrunk(), Assert.Single(page.Posted));
     }
 }

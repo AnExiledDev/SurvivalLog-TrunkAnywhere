@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using ExiledToolkit.Game;
 using GameCore.HotUpdate;
 using GameCore.HotUpdate.ReduxUI;
-using HarmonyLib;
 using TrunkAnywhere.Core;
 using Il2CppItems = Il2CppSystem.Collections.Generic.Dictionary<long, Il2CppSystem.Collections.Generic.Dictionary<long, GameCore.HotUpdate.ReduxUI.Data_Item>>;
 
@@ -20,22 +20,16 @@ internal static class UnpaidGuard
 {
     private static readonly object Gate = new();
     private static readonly List<long> Blocked = new();
-    private static Action<string> _log = _ => { };
-    private static bool _hasReportedHookFailure;
+    private static PatchKit? _hooks;
 
-    public static void Apply(Harmony harmony, Action<string> log)
+    public static void Apply(PatchKit hooks)
     {
-        _log = log;
-
-        try
-        {
-            harmony.Patch(AccessTools.Method(typeof(Reducer_Data_Item), "RA_ChangePos"), prefix: new HarmonyMethod(typeof(UnpaidGuard), nameof(BeforeChangePos)));
-            log("unpaid items can't be dragged into the trunk");
-        }
-        catch (Exception ex)
-        {
-            log("could not hook Reducer_Data_Item.RA_ChangePos, so unpaid items CAN be dragged into the trunk: " + ex.Message);
-        }
+        _hooks = hooks;
+        hooks.Patch(
+            typeof(UnpaidGuard), typeof(Reducer_Data_Item), "RA_ChangePos",
+            prefix: nameof(BeforeChangePos),
+            done: "unpaid items can't be dragged into the trunk",
+            consequence: "so unpaid items CAN be dragged into the trunk");
     }
 
     /// <summary>The ids of items kept out of the trunk since the last call.</summary>
@@ -72,7 +66,7 @@ internal static class UnpaidGuard
         }
         catch (Exception ex)
         {
-            ReportHookFailure(ex);
+            _hooks?.Fail("checking an item move for unpaid items", ex);
 
             // Failing closed here would stop every item move in the game, which is worse than one unpaid item slipping in.
             return true;
@@ -85,13 +79,5 @@ internal static class UnpaidGuard
         if (owners == null || !owners.TryGetValue(fromOwnerId, out var held) || held == null) return false;
 
         return held.TryGetValue(itemId, out var item) && item != null && item.IsShopItem;
-    }
-
-    private static void ReportHookFailure(Exception ex)
-    {
-        if (_hasReportedHookFailure) return;
-
-        _hasReportedHookFailure = true;
-        _log("the unpaid item check failed and let the move through (only the first failure is logged): " + ex);
     }
 }

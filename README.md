@@ -41,13 +41,13 @@ The key can be changed or turned off in the config.
 
 - Survival Log 1.1.19611. Built and tested on this version; a game update can break it until the mod is updated.
 - The [BepInEx Pack for Survival Log](https://www.nexusmods.com/survivallog/mods/12), the BepInEx 6 (IL2CPP) build for the game.
-- Optional: [Exiled's Toolkit](https://github.com/AnExiledDev/SurvivalLog-ExiledToolkit) 0.4.0 or newer. With it, settings changed on the Mod Manager's Mods screen take effect without restarting the game. Without it, they take effect at the next game start. With 0.12.0 or newer, the trunk key also does nothing while you type in another mod's window.
+- [Exiled's Toolkit](https://github.com/AnExiledDev/SurvivalLog-ExiledToolkit) 0.19.0 or newer. Trunk Anywhere does not load without it. It applies settings changed on the Mod Manager's Mods screen without restarting the game.
 - Optional: [Mod Manager](https://www.nexusmods.com/survivallog/mods/73). With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.
 
 ## Install
 
 1. Install the [BepInEx Pack for Survival Log](https://www.nexusmods.com/survivallog/mods/12) (if no other mods were installed before, start the game once so BepInEx finishes setup, then quit).
-2. Optional, to change settings without a restart: install Exiled's Toolkit. Download `ExiledToolkit-x.y.z.zip` from [its latest release](https://github.com/AnExiledDev/SurvivalLog-ExiledToolkit/releases/latest) or from [Nexus Mods](https://www.nexusmods.com/survivallog/mods/61), and extract it into the game folder (the folder with `SurvivalLog.exe`).
+2. Install Exiled's Toolkit. Download `ExiledToolkit-x.y.z.zip` from [its latest release](https://github.com/AnExiledDev/SurvivalLog-ExiledToolkit/releases/latest) or from [Nexus Mods](https://www.nexusmods.com/survivallog/mods/61), and extract it into the game folder (the folder with `SurvivalLog.exe`).
 3. Download `TrunkAnywhere-x.y.z.zip` from the [latest release](https://github.com/AnExiledDev/SurvivalLog-TrunkAnywhere/releases/latest) or from [Nexus Mods](https://www.nexusmods.com/survivallog/mods/64).
 4. Extract the zip into the game folder (the folder with `SurvivalLog.exe`). It holds a `BepInEx` folder, so the DLL lands in the right place. When asked, merge the folders. The result should be:
    `C:\Program Files (x86)\Steam\steamapps\common\Survival Log\BepInEx\plugins\TrunkAnywhere.dll`
@@ -58,7 +58,7 @@ Delete `TrunkAnywhere.dll` from the `BepInEx\plugins` folder. For a clean slate,
 
 ## Configuration
 
-Settings live in `BepInEx\config\com.dev.survivallog.trunkanywhere.cfg`, created the first time the game starts with the mod. Change them in game on the Mod Manager's Mods screen, where they take effect at once, or edit the file while the game is closed. Each setting in the cfg file is explained in English and Simplified Chinese. See [CONFIG.md](CONFIG.md) for every setting. Without Exiled's Toolkit installed, changes made on the Mods screen take effect at the next game start instead.
+Settings live in `BepInEx\config\com.dev.survivallog.trunkanywhere.cfg`, created the first time the game starts with the mod. Change them in game on the Mod Manager's Mods screen, where they take effect at once, or edit the file while the game is closed. Each setting in the cfg file is explained in English and Simplified Chinese. See [CONFIG.md](CONFIG.md) for every setting.
 
 The Take All to Trunk button and the unpaid-item message follow the game's language: English or Simplified Chinese.
 
@@ -66,7 +66,7 @@ The Take All to Trunk button and the unpaid-item message follow the game's langu
 
 Tested on Survival Log 1.1.19611 with BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Trunk Anywhere 0.4.3 started`, followed by `trunk key F6`. The same lines, plus one line for every press of the key saying what happened and why, is in `BepInEx\trunk-anywhere.log`, which survives restarts. If the key seems to do nothing, that file says which of the reasons above stopped it.
+Check `BepInEx\LogOutput.log` for `===== Trunk Anywhere 0.4.5 started`, followed by `trunk key F6`. The same lines, plus one line for every press of the key saying what happened and why, is in `BepInEx\trunk-anywhere.log`, which survives restarts. If the key seems to do nothing, that file says which of the reasons above stopped it.
 
 ## Feedback and bug reports
 

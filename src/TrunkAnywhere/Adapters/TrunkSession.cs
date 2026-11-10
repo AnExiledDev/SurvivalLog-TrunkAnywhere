@@ -1,4 +1,5 @@
 using System;
+using ExiledToolkit.Web;
 using GameCore.HotUpdate;
 using TrunkAnywhere.Core;
 using UnityEngine;
@@ -12,15 +13,18 @@ namespace TrunkAnywhere.Adapters;
 internal sealed class TrunkSession
 {
     private readonly GameTrunk _game;
+    private readonly PageMailbox _messages;
     private KeyCode _trunkKey = KeyCode.None;
     private readonly Action<string> _log;
     private OpenStep _step = new OpenStep.Idle();
     private bool _hasCheckedKeyBinding;
     private bool _isTakeAllOn = true;
 
-    public TrunkSession(GameTrunk game, Action<string> log)
+    /// <param name="messages">The page script's messages, which the session answers on its frame.</param>
+    public TrunkSession(GameTrunk game, PageMailbox messages, Action<string> log)
     {
         _game = game;
+        _messages = messages;
         _log = log;
     }
 
@@ -51,8 +55,10 @@ internal sealed class TrunkSession
 
     private void AnswerPage()
     {
-        while (PageMessages.TryTake(out var message))
+        while (_messages.TryTake(out var text))
         {
+            var message = PageMessage.Parse(text);
+
             switch (message)
             {
                 case PageMessage.TakeAllToTrunk when !_isTakeAllOn:

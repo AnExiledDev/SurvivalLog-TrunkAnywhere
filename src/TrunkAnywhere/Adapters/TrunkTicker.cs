@@ -13,7 +13,7 @@ public sealed class TrunkTicker : MonoBehaviour
     private const int MaxReportedFailures = 20;
 
     internal static TrunkSession? Session;
-    internal static WebPage? Page;
+    internal static TrunkPage? Page;
     internal static Action<string> Log = _ => { };
     private static readonly HashSet<string> ReportedFailures = new();
 

@@ -4,19 +4,30 @@ using TrunkAnywhere.Core;
 namespace TrunkAnywhere.Tests;
 
 /// <summary>
-/// page.js exactly as the plugin embeds it, run in Jint on top of FakePage.js (Root.html with the bag screen in an
-/// iframe, the vuplex bridge, a poll). What the script posts is parsed with PageMessage, as the plugin parses it.
+/// page.js exactly as the plugin embeds it, run in Jint with Exiled's Toolkit's page API (api.js, from the Toolkit's
+/// source) on top of FakePage.js (Root.html with the bag screen in an iframe, the vuplex bridge, a poll). What the
+/// script posts is parsed with PageMessage, as the plugin parses it.
 /// </summary>
 internal sealed class PageScript
 {
     private readonly Engine _engine = new();
 
-    public PageScript()
+    /// <param name="isToolkitFirst">
+    /// The game runs the Toolkit's script first, or with false Trunk Anywhere's first; then the Toolkit's runs only at
+    /// <see cref="LoadToolkit"/>.
+    /// </param>
+    public PageScript(bool isToolkitFirst = true)
     {
         _engine.Execute(Resource("TrunkAnywhere.Tests.FakePage.js"));
+
+        if (isToolkitFirst) LoadToolkit();
+
         _engine.Execute(Resource("TrunkAnywhere.page.js"));
         Hear();
     }
+
+    /// <summary>The Toolkit's page API arriving after Trunk Anywhere's script.</summary>
+    public void LoadToolkit() => Run(Resource("ExiledToolkit.api.js"));
 
     /// <summary>Everything the script posted to the plugin, parsed as the plugin parses it.</summary>
     public List<PageMessage> Posted { get; } = new();
@@ -52,7 +63,7 @@ internal sealed class PageScript
 
     public void Press(string element) => Run($"press({element})");
 
-    /// <summary>The plugin's resend every couple of seconds, which must find the first copy already running.</summary>
+    /// <summary>The plugin sending the script a second time, which must find the first copy already running.</summary>
     public void SendScriptAgain() => Run(Resource("TrunkAnywhere.page.js"));
 
     /// <summary>Takes what the script posted since the last look.</summary>
