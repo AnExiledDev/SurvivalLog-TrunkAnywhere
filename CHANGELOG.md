@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.6
+
+- The log file `BepInEx\trunk-anywhere.log` no longer grows without limit. Past 1 MB, the older part moves to `trunk-anywhere.log.1`.
+- Made for Survival Log 1.1.20719.
+
 ## 0.4.5
 
 - Now uses Exiled's Toolkit for its shared parts, so it needs Exiled's Toolkit 0.19.0 or newer.

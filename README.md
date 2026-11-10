@@ -39,7 +39,7 @@ The key can be changed or turned off in the config.
 
 ## Requirements
 
-- Survival Log 1.1.19611. Built and tested on this version; a game update can break it until the mod is updated.
+- Survival Log 1.1.20719. Built and tested on this version; a game update can break it until the mod is updated.
 - The [BepInEx Pack for Survival Log](https://www.nexusmods.com/survivallog/mods/12), the BepInEx 6 (IL2CPP) build for the game.
 - [Exiled's Toolkit](https://github.com/AnExiledDev/SurvivalLog-ExiledToolkit) 0.19.0 or newer. Trunk Anywhere does not load without it. It applies settings changed on the Mod Manager's Mods screen without restarting the game.
 - Optional: [Mod Manager](https://www.nexusmods.com/survivallog/mods/73). With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.
@@ -54,7 +54,7 @@ The key can be changed or turned off in the config.
 
 ## Uninstall
 
-Delete `TrunkAnywhere.dll` from the `BepInEx\plugins` folder. For a clean slate, also delete `BepInEx\config\com.dev.survivallog.trunkanywhere.cfg` and `BepInEx\trunk-anywhere.log`.
+Delete `TrunkAnywhere.dll` from the `BepInEx\plugins` folder. For a clean slate, also delete `BepInEx\config\com.dev.survivallog.trunkanywhere.cfg` and `BepInEx\trunk-anywhere.log` (with `trunk-anywhere.log.1` if it is there).
 
 ## Configuration
 
@@ -64,9 +64,9 @@ The Take All to Trunk button and the unpaid-item message follow the game's langu
 
 ## Troubleshooting
 
-Tested on Survival Log 1.1.19611 with BepInEx `6.0.0-be.788`.
+Tested on Survival Log 1.1.20719 with BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Trunk Anywhere 0.4.5 started`, followed by `trunk key F6`. The same lines, plus one line for every press of the key saying what happened and why, is in `BepInEx\trunk-anywhere.log`, which survives restarts. If the key seems to do nothing, that file says which of the reasons above stopped it.
+Check `BepInEx\LogOutput.log` for `===== Trunk Anywhere 0.4.6 started`, followed by `trunk key F6`. The same lines, plus one line for every press of the key saying what happened and why, is in `BepInEx\trunk-anywhere.log`, which survives restarts. If the key seems to do nothing, that file says which of the reasons above stopped it.
 
 ## Feedback and bug reports
 
@@ -78,13 +78,13 @@ A Survival Log wiki with detailed documentation for all of my mods is coming soo
 
 ## Build
 
-This is a BepInEx 6 IL2CPP plugin. It compiles against BepInEx and the game's IL2CPP interop assemblies, so a game install with BepInEx set up and started once is required. Those assemblies come from the game and are not part of this repo. The .NET 8 SDK is required.
+This is a BepInEx 6 IL2CPP plugin. It compiles against BepInEx, the game's IL2CPP interop assemblies and Exiled's Toolkit, so a game install with BepInEx set up and started once is required. Those assemblies are not part of this repo. The .NET 8 SDK is required.
 
 ```
-dotnet build src/TrunkAnywhere -c Release -p:GameDir="C:\path\to\Survival Log"
+dotnet build src/TrunkAnywhere -c Release -p:GameDir="C:\path\to\Survival Log" -p:ToolkitDll="C:\path\to\ExiledToolkit.dll"
 ```
 
-`GameDir` is the game folder. The default in the project file is a local path you will almost certainly need to override. The output DLL is at `src\TrunkAnywhere\bin\Release\TrunkAnywhere.dll`.
+`GameDir` is the game folder and `ToolkitDll` is a built `ExiledToolkit.dll`. The defaults in the project file are local paths you will almost certainly need to override. The output DLL is at `src\TrunkAnywhere\bin\Release\TrunkAnywhere.dll`.
 
 The unit tests cover the key and unpaid-item rules and the Take All to Trunk button, and need nothing from the game:
 
