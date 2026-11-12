@@ -29,7 +29,7 @@ Works in English and Chinese.
 [list]
 [*]The key does nothing while any other window is open, the settings menu included.[/*]
 [*]Only drags into the trunk are checked. An item you picked on the shop's trunk tab but haven't paid for yet can still be moved around inside the trunk or out of it.[/*]
-[*]Door boxes don't count as the trunk, so the unpaid-item check doesn't cover them.[/*]
+[*]Doorway Storage doesn't count as the trunk, so the unpaid-item check doesn't cover it.[/*]
 [/list]
 
 [center][img]https://sldb.core-directive.com/img/mods-banner.jpg[/img]
@@ -93,7 +93,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnyw
 [list]
 [*]打开任何其他窗口时（包括设置菜单），按键不起作用。[/*]
 [*]只检查拖进后备箱的操作。在商店后备箱标签页选好、还没付款的物品，仍然可以在后备箱里挪动或取出。[/*]
-[*]门口箱子不算后备箱，所以未付款物品的检查管不到它。[/*]
+[*]门口暂存格不算后备箱，所以未付款物品的检查管不到它。[/*]
 [/list]
 
 [url=https://www.nexusmods.com/survivallog/mods/73]获取 Mod Manager[/url]，在游戏里设置所有模组。[url=https://sldb.core-directive.com/zh/]打开 Survival Log 维基[/url]，物品、配方、地图一查就有。

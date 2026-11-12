@@ -35,7 +35,7 @@ The key can be changed or turned off in the config.
 
 - The key does nothing while any other window is open, the settings menu included.
 - Only drags into the trunk are checked. An item you picked on the shop's trunk tab but haven't paid for yet can still be moved around inside the trunk or out of it.
-- Door boxes don't count as the trunk, so the unpaid-item check doesn't cover them.
+- Doorway Storage doesn't count as the trunk, so the unpaid-item check doesn't cover it.
 
 ## Requirements
 
