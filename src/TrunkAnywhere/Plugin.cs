@@ -16,13 +16,13 @@ namespace TrunkAnywhere;
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.trunkanywhere";
-    private const string Version = "0.4.6";
+    private const string Version = "0.4.7";
     private const long MaxLogBytes = 1024 * 1024;
 
     public override void Load()
     {
-        var trunkKey = Config.Bind("Controls", "TrunkKey", KeyCode.F6, "Key that opens the backpack and trunk view anywhere before the disaster, once you own a vehicle. It does nothing while a storage, shop or any other window is open, or while you type. None turns the key off.\n在灾难来临前、拥有车辆后，在任何地方打开背包和后备箱界面的按键。打开储物、商店或其他窗口时，或正在输入文字时不起作用。设为 None 可关闭此按键。");
-        var takeAll = Config.Bind("Looting", "TakeAllToTrunk", true, "Show the Take All to Trunk button under Take by Type when you loot with your trunk as one of the tabs. Off hides the button. Default: on.\n搜刮时如果后备箱是标签页之一，在「分类取出」下方显示「全部放进后备箱」按钮。关闭后不显示这个按钮。默认开启。");
+        var trunkKey = Config.Bind("Controls", "TrunkKey", KeyCode.F6, "The key that opens the backpack and trunk view from anywhere before the disaster, once you own a vehicle. It does nothing while a storage, a shop or any other window is open, or while you type. Set it to None to turn the key off.\n在灾难来临前、拥有车辆后，在任何地方打开背包和后备箱界面的按键。打开储物、商店或其他窗口时，或正在输入文字时不起作用。设为 None 可关闭此按键。");
+        var takeAll = Config.Bind("Looting", "TakeAllToTrunk", true, "Shows the Take All to Trunk button under Take by Type when you loot a container and your trunk is one of the tabs. Off hides the button. Default: on.\n搜刮容器时，如果后备箱是其中一个标签页，在「分类取出」下方显示「全部放进后备箱」按钮。关闭后不显示这个按钮。默认开启。");
         var log = new ModLog(Log, "trunk-anywhere.log") { MaxFileBytes = MaxLogBytes };
         var hooks = new PatchKit(new Harmony(Guid), log.Write);
         var session = new TrunkSession(new GameTrunk(log.Write), PageInbox.Listen(PageMessage.Prefix), log.Write);

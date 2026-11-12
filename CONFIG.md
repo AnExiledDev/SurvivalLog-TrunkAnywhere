@@ -6,7 +6,7 @@ Settings live in `BepInEx\config\com.dev.survivallog.trunkanywhere.cfg`, created
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| `TrunkKey` | `F6` | Key that opens the backpack and trunk view anywhere before the disaster, once you own a vehicle. It does nothing while a storage, shop or any other window is open, or while you type. |
+| `TrunkKey` | `F6` | The key that opens the backpack and trunk view from anywhere before the disaster, once you own a vehicle. It does nothing while a storage, a shop or any other window is open, or while you type. |
 
 The value is a Unity key name, for example `F6`, `F7`, `T` or `Keypad5`. Set it to `None` to turn the key off.
 
@@ -14,4 +14,4 @@ The value is a Unity key name, for example `F6`, `F7`, `T` or `Keypad5`. Set it 
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| `TakeAllToTrunk` | `true` | Show the Take All to Trunk button under Take by Type when you loot with your trunk as one of the tabs. `false` hides the button. |
+| `TakeAllToTrunk` | `true` | Shows the Take All to Trunk button under Take by Type when you loot a container and your trunk is one of the tabs. `false` hides the button. |

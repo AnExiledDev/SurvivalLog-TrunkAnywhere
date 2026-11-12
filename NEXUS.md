@@ -1,18 +1,18 @@
 Name: Trunk Anywhere
-Summary: Press F6 to open your vehicle's trunk next to your backpack from anywhere before the disaster, with no walk back to the cart. Buy from the shop straight into the trunk on the same bill, and move a whole loot pile into the trunk with the new Take All to Trunk button. Same trunk view and checks as the game's.
+Summary: Press F6 to open your vehicle's trunk next to your backpack from anywhere before the disaster, so you don't have to walk back to the cart. Buy from the shop straight into the trunk on the same bill, and move everything in a container into the trunk with the Take All to Trunk button while you loot. It's the same trunk view the cart opens.
 
 Description (BBCode):
 [center][img]https://sldb.core-directive.com/media/save/1-save-safe.png[/img][/center]
 
-Before the disaster, sorting your trunk means finding the cart and using its organize trunk action. Trunk Anywhere opens the same backpack and trunk view with one key, wherever you are.
+Before the disaster, sorting your trunk means finding the cart and using its Organize Trunk option. Trunk Anywhere opens the same backpack and trunk view with one key, wherever you are.
 
 [size=5]Main features[/size]
 [list]
 [*][b]Trunk key[/b]: F6 opens your backpack next to your vehicle's trunk.[/*]
-[*][b]Game's view[/b]: the same trunk view the cart opens, with the game's checks.[/*]
+[*][b]Same trunk view[/b]: it's the trunk view the cart opens, so everything in it works the way it normally does.[/*]
 [*][b]No dragging unpaid items in[/b]: you can't drag an unpaid item into the trunk. Pay for it first.[/*]
-[*][b]Buy into the trunk[/b]: the shop's trunk tab buys straight into the trunk, on the same bill as your bag.[/*]
-[*][b]Take All to Trunk[/b]: when looting with your trunk as a tab, a new button under Take by Type moves everything straight into the trunk. If the trunk fills up, the rest stays where it was. You can turn the button off in the config.[/*]
+[*][b]Buy into the trunk[/b]: buying on the shop's trunk tab puts the item straight into the trunk, on the same bill as your bag.[/*]
+[*][b]Take All to Trunk[/b]: when you loot a container and your trunk is one of the tabs, a new button under Take by Type moves everything straight into the trunk. If the trunk fills up, the rest stays in the container. You can turn the button off in the config.[/*]
 [/list]
 
 [size=5]Hotkeys[/size]
@@ -21,15 +21,15 @@ Before the disaster, sorting your trunk means finding the cart and using its org
 [/list]
 The key can be changed in the config.
 
-The mod adds no data of its own to your save. Items you move are moved the same way the game's trunk view moves them. You can remove it at any time.
+The mod doesn't add anything to your save. Items you move in the trunk view are saved the same way they are when you use the cart. You can remove the mod at any time.
 
 Works in English and Chinese.
 
 [size=5]Known issues[/size]
 [list]
 [*]The key does nothing while any other window is open, the settings menu included.[/*]
-[*]Only drags into the trunk are checked. An item from the trunk tab that is not yet paid for can still be moved inside the trunk or out of it.[/*]
-[*]Door boxes are not covered by the unpaid-item check.[/*]
+[*]Only drags into the trunk are checked. An item you picked on the shop's trunk tab but haven't paid for yet can still be moved around inside the trunk or out of it.[/*]
+[*]Door boxes don't count as the trunk, so the unpaid-item check doesn't cover them.[/*]
 [/list]
 
 [center][img]https://sldb.core-directive.com/img/mods-banner.jpg[/img]
@@ -56,11 +56,11 @@ Works in English and Chinese.
 Delete [font=Courier New]TrunkAnywhere.dll[/font] from the [font=Courier New]BepInEx\plugins[/font] folder.
 
 [size=5]Configuration[/size]
-To change the key, edit [font=Courier New]BepInEx\config\com.dev.survivallog.trunkanywhere.cfg[/font] while the game is closed, or do it in game on the Mod Manager's Mods screen, where changes take effect at once (see [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnywhere/blob/main/CONFIG.md]CONFIG.md[/url]; the cfg file explains each setting in English and Chinese).
+You can change the settings in game on the Mod Manager's Mods screen, where changes take effect at once, or edit [font=Courier New]BepInEx\config\com.dev.survivallog.trunkanywhere.cfg[/font] while the game is closed. The cfg file explains each setting in English and Chinese, and [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnywhere/blob/main/CONFIG.md]CONFIG.md[/url] lists them all.
 
 [size=5]Feedback[/size]
 Found a bug or have an idea? Come say hi on the [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url], or post in this page's Posts tab. For bugs, please include [font=Courier New]BepInEx\LogOutput.log[/font] and [font=Courier New]BepInEx\trunk-anywhere.log[/font].
-To reach me directly, message [b]exiled.dev[/b] on Discord; you can find me in the [url=https://discord.gg/MZGg4gQAUe]official Survival Log Discord[/url]. I'm also on X as [url=https://x.com/AnExiledDev]@AnExiledDev[/url].
+To reach me directly, message [b]exiled.dev[/b] on Discord. You can find me in the [url=https://discord.gg/MZGg4gQAUe]official Survival Log Discord[/url]. I'm also on X as [url=https://x.com/AnExiledDev]@AnExiledDev[/url].
 
 [size=5]Source and license[/size]
 Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnywhere]github.com/AnExiledDev/SurvivalLog-TrunkAnywhere[/url]
@@ -73,10 +73,10 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnyw
 [size=5]主要功能[/size]
 [list]
 [*][b]后备箱按键[/b]：F6 打开你的背包和车辆后备箱。[/*]
-[*][b]游戏自己的界面[/b]：与小推车打开的后备箱界面相同，游戏自己的检查依然有效。[/*]
+[*][b]同样的后备箱界面[/b]：就是小推车打开的那个后备箱界面，里面的操作都和平时一样。[/*]
 [*][b]不能拖入未付款物品[/b]：不能把未付款的物品拖进后备箱，请先付款。[/*]
 [*][b]直接买进后备箱[/b]：在商店的后备箱标签页购买，物品直接放进后备箱，和背包里的物品一起结账。[/*]
-[*][b]「全部放进后备箱」[/b]：搜刮时如果后备箱是标签页之一，「分类取出」下方会出现一个新按钮，把所有物品直接放进后备箱。后备箱装满后，剩下的物品留在原处。可以在配置中关闭这个按钮。[/*]
+[*][b]「全部放进后备箱」[/b]：搜刮容器时，如果后备箱是其中一个标签页，「分类取出」下方会出现一个新按钮，把容器里的所有物品直接放进后备箱。后备箱装满后，剩下的物品留在容器里。可以在配置中关闭这个按钮。[/*]
 [/list]
 
 [size=5]快捷键[/size]
@@ -85,15 +85,15 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnyw
 [/list]
 可以在配置中修改按键。
 
-模组不会往存档里写入自己的数据。移动的物品与游戏自己的后备箱界面移动方式相同。你可以随时移除它。
+本模组不会往存档里添加任何东西。在后备箱界面移动的物品，保存方式和用小推车时一样。你可以随时移除本模组。
 
 支持英文和中文。
 
 [size=5]已知问题[/size]
 [list]
 [*]打开任何其他窗口时（包括设置菜单），按键不起作用。[/*]
-[*]只检查拖进后备箱的操作。在后备箱标签页选购、还没付款的物品，仍然可以在后备箱里移动或取出。[/*]
-[*]门口箱子不受未付款物品检查。[/*]
+[*]只检查拖进后备箱的操作。在商店后备箱标签页选好、还没付款的物品，仍然可以在后备箱里挪动或取出。[/*]
+[*]门口箱子不算后备箱，所以未付款物品的检查管不到它。[/*]
 [/list]
 
 [url=https://www.nexusmods.com/survivallog/mods/73]获取 Mod Manager[/url]，在游戏里设置所有模组。[url=https://sldb.core-directive.com/zh/]打开 Survival Log 维基[/url]，物品、配方、地图一查就有。
@@ -119,7 +119,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnyw
 从 [font=Courier New]BepInEx\plugins[/font] 文件夹中删除 [font=Courier New]TrunkAnywhere.dll[/font]。
 
 [size=5]配置[/size]
-可以在游戏内 Mod Manager 的「模组」界面修改，改动立即生效；也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.trunkanywhere.cfg[/font]。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnywhere/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。
+可以在游戏内 Mod Manager 的「模组」界面修改，改动立即生效，也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.trunkanywhere.cfg[/font]。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-TrunkAnywhere/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。
 
 [size=5]反馈[/size]
 发现 bug 或有好点子？欢迎来 [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url] 打个招呼，或在本页的「Posts」标签里发帖。报告 bug 时，请附上 [font=Courier New]BepInEx\LogOutput.log[/font] 和 [font=Courier New]BepInEx\trunk-anywhere.log[/font]。
