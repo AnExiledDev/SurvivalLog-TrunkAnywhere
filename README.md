@@ -39,7 +39,7 @@ The key can be changed or turned off in the config.
 
 ## Requirements
 
-- Survival Log 1.1.20719. It's built and tested on this version, and a game update can break it until the mod is updated.
+- Survival Log 1.1.21671. It's built and tested on this version, and a game update can break it until the mod is updated.
 - The [BepInEx Pack for Survival Log](https://www.nexusmods.com/survivallog/mods/12), the BepInEx 6 (IL2CPP) build for the game.
 - [Exiled's Toolkit](https://github.com/AnExiledDev/SurvivalLog-ExiledToolkit) 0.19.0 or newer. Trunk Anywhere does not load without it. It applies settings changed on the Mod Manager's Mods screen without restarting the game.
 - Optional: [Mod Manager](https://www.nexusmods.com/survivallog/mods/73). With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.
@@ -64,9 +64,9 @@ The Take All to Trunk button and the unpaid-item message follow the game's langu
 
 ## Troubleshooting
 
-Tested on Survival Log 1.1.20719 with BepInEx `6.0.0-be.788`.
+Tested on Survival Log 1.1.21671 with BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Trunk Anywhere 0.4.7 started`, followed by `trunk key F6`. `BepInEx\trunk-anywhere.log` has the same lines, plus one line for every press of the key saying what happened and why, and it's kept between restarts. If the key seems to do nothing, that file says which of the reasons above stopped it.
+Check `BepInEx\LogOutput.log` for `===== Trunk Anywhere 0.4.8 started`, followed by `trunk key F6`. `BepInEx\trunk-anywhere.log` has the same lines, plus one line for every press of the key saying what happened and why, and it's kept between restarts. If the key seems to do nothing, that file says which of the reasons above stopped it.
 
 ## Feedback and bug reports
 

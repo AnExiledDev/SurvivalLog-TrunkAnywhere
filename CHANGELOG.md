@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.8
+
+- Small speed up: the trunk button is only updated when it needs to change.
+- Made for Survival Log 1.1.21671.
+
 ## 0.4.7
 
 - Clearer wording in the settings.

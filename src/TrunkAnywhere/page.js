@@ -110,8 +110,11 @@
 
       if (label && label.textContent !== buttonLabel()) label.textContent = buttonLabel();
 
-      button.style.display = state.isWanted ? '' : 'none';
-      button.disabled = state.isEmpty;
+      // This runs on every check, so the button is only written when its state changed.
+      var display = state.isWanted ? '' : 'none';
+
+      if (button.style.display !== display) button.style.display = display;
+      if (button.disabled !== state.isEmpty) button.disabled = state.isEmpty;
     }
 
     // ===== Finding the page =====

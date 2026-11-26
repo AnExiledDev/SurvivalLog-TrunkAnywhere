@@ -67,6 +67,28 @@ public class PageScriptTests
     }
 
     [Fact]
+    public void A_check_that_finds_nothing_changed_leaves_the_button_alone()
+    {
+        var page = new PageScript();
+
+        page.OpenLoot("");
+        page.Run("""
+            var writes = 0, b = trunkButton(), shown = b.style.display, off = b.disabled;
+            Object.defineProperty(b.style, 'display', { get: function () { return shown; }, set: function (v) { writes++; shown = v; } });
+            Object.defineProperty(b, 'disabled', { get: function () { return off; }, set: function (v) { writes++; off = v; } });
+            """);
+        page.Poll();
+        page.Poll();
+
+        Assert.True(page.Truth("writes === 0"));
+
+        page.Change("s.toSelfEmpty = true;");
+        page.Poll();
+
+        Assert.True(page.Truth("writes === 1 && trunkButton().disabled"));
+    }
+
+    [Fact]
     public void The_button_comes_back_to_life_once_there_is_something_to_take()
     {
         var page = new PageScript();

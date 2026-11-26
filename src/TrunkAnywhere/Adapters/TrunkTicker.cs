@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ExiledToolkit.Kit;
 using UnityEngine;
 
 namespace TrunkAnywhere.Adapters;
@@ -35,7 +36,7 @@ public sealed class TrunkTicker : MonoBehaviour
         // Kept apart from the session, so a session failing every frame still leaves the button in the page.
         try
         {
-            Page?.KeepInstalled(Time.unscaledTime);
+            Page?.KeepInstalled(Clock.Now);
         }
         catch (Exception ex)
         {
